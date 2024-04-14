@@ -1,17 +1,10 @@
 using namespace std;
 
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include <vector>
 
 #include "SJF_Non.h"
 #include "../Process/process.cpp"
-// function to excecute for 1 second
-void execute(Process p) {
-	this_thread::sleep_for(chrono::seconds(1));
-	p.execute();
-}
 
 int main(){
 	int n;

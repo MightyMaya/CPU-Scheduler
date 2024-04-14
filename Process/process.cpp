@@ -1,6 +1,8 @@
 using namespace std;
 
 #include <iostream>
+#include <thread>
+#include <chrono>
 // class to represent a process with its ID, Arrival time,Burst time
 class Process {
 	private:
@@ -46,6 +48,7 @@ class Process {
 		
 		//function to execute the process for 1 second
 		void execute (){
+			this_thread::sleep_for(chrono::seconds(1));
 			burst--;
 		}
 		//function to print remaining time of a process
