@@ -33,6 +33,7 @@ public:
     void printRemainingTime();
     void calcProcessWaitingTime(int finishTime);
     void calcProcessTurnaroundTime(int finishTime);
+    bool operator<(const process& other) const;
 };
 
 #endif

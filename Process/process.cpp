@@ -77,4 +77,7 @@ using namespace std;
         turnaroundTime = finishTime - this->arrival;
     }
 
+    bool process :: operator<(const process& other) const {
+        return burst < other.burst;
+}
 
