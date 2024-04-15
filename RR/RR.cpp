@@ -2,30 +2,28 @@
 using namespace std;
 
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include <queue>
 #include <vector>
+#include "process.h"
 
 
 int quantumTime;
 
-vector<Process> RR(queue<Process>& readyQueue, int quantumTime) {
-    vector<Process> GranttChart;
+vector<process> RR(queue<process>& readyQueue, int quantumTime) {
+    vector<process> GranttChart;
     int currentTime = 0;
     while (!readyQueue.empty()) {
-        Process currentProcess = readyQueue.front();
+        process currentProcess = readyQueue.front();
         readyQueue.pop();
-        currentProcess.setWaitingTime(currentTime - currentProcess.getArrival());
         int execTime = min(quantumTime, currentProcess.getBurst());
         currentTime += execTime;
-        currentProcess.setBurst(currentProcess.getBurst() - execTime);
-        if (currentProcess.getBurst() > 0) {
-            currentProcess.setArrival(currentTime);
+        currentProcess.setDoneBurst(execTime + currentProcess.getDoneBurst());
+        if ((currentProcess.getBurst() - currentProcess.getDoneBurst()) > 0) {
             readyQueue.push(currentProcess);
         }
         else{
-            currentProcess.setTurnaroundTime(currentTime - currentProcess.getArrival());
+            currentProcess.calcProcessTurnaroundTime(currentTime);
+            currentProcess.calcProcessWaitingTime(currentTime);
         }
         GranttChart.push_back(currentProcess);
     }
@@ -33,18 +31,18 @@ vector<Process> RR(queue<Process>& readyQueue, int quantumTime) {
 }
 
 int main() {
-    queue<Process> readyQueue;
-    readyQueue.push(Process(1, 0, 5));
-    readyQueue.push(Process(2, 1, 3));
-    readyQueue.push(Process(3, 2, 6));
+    queue<process> readyQueue;
+    readyQueue.push(process(1, 0, 5));
+    readyQueue.push(process(2, 1, 3));
+    readyQueue.push(process(3, 2, 6));
 
     quantumTime = 2;
 
-    vector<Process> ganttChart = RR(readyQueue, quantumTime);
+    vector<process> ganttChart = RR(readyQueue, quantumTime);
 
     cout << "Gantt Chart:" << endl;
     for (const auto& event : ganttChart) {
-        cout << "Process " << event.getID() <<" time remaining: "<< event.getBurst()<<endl;
+        cout << "Process " << event.getID() <<" time done: "<< event.getDoneBurst()<<endl;
     }
     cout << endl;
 
