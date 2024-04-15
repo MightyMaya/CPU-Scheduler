@@ -1,73 +1,80 @@
+
 using namespace std;
 
-#include <iostream>
-#include <thread>
-#include <chrono>
-// class to represent a process with its ID, Arrival time,Burst time
-class Process {
-private:
-    int ID;
-    int arrival;
-    int burst;
-    int waitingTime=0;
-    int turnaroundTime=0;
+#include "process.h"
 
-public:
-    Process(){
+
+    process::process(){
         ID = 0;
         arrival = 0;
         burst = 1;
     }
-    Process(int id, int arrival_, int burst_){
+    process::process(int id, int arrival_, int burst_){
         ID = id;
         arrival = arrival_;
         burst = burst_;
     }
 
-    int getID ()const{
+    int process::getID ()const{
         return ID;
     }
-    void setID(int id){
+    void process::setID(int id){
         ID = id;
     }
 
-    int getArrival()const{
+    int process::getArrival()const{
         return arrival;
     }
-    void setArrival(int arrival_){
+    void process::setArrival(int arrival_){
         arrival = arrival_;
     }
 
-    int getBurst()const{
+    int process::getBurst()const{
         return burst;
     }
-    void setBurst(int burst_){
+    void process::setBurst(int burst_){
         burst = burst_;
     }
 
-    int getWaitingTime()const{
+    int process::getWaitingTime()const{
         return waitingTime;
     }
-    void setWaitingTime(int waitingTime_){
+    void process::setWaitingTime(int waitingTime_){
         waitingTime = waitingTime_;
     }
 
-    int getTurnaroundTime()const{
+    int process::getTurnaroundTime()const{
         return turnaroundTime;
     }
-    void setTurnaroundTime(int turnaroundTime_){
+    void process::setTurnaroundTime(int turnaroundTime_){
         turnaroundTime = turnaroundTime_;
     }
 
+    int process::getDoneBurst()const{
+        return doneBurst;
+    }
+    void process::setDoneBurst(int doneBurst_){
+        doneBurst = doneBurst_;
+    }
 
     //function to execute the process for 1 second
-    void execute (){
+    void process::execute (){
         this_thread::sleep_for(chrono::seconds(1));
-        burst--;
+        burst--; //NEEDS TO CHANGE`
     }
     //function to print remaining time of a process
-    void printRemainingTime(){
+    void process::printRemainingTime(){
         cout << burst << endl;
     }
 
-};
+    //function to calculate waiting time
+    void process::calcProcessWaitingTime(int finishTime){
+        waitingTime = finishTime - this->burst - this->arrival;
+    }
+
+    //function to calculate turnaround time
+    void process::calcProcessTurnaroundTime(int finishTime){
+        turnaroundTime = finishTime - this->arrival;
+    }
+
+
