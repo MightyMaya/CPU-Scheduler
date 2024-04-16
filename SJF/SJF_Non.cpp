@@ -4,7 +4,7 @@ using namespace std;
 #include <vector>
 #include <queue>
 #include <algorithm>
-#include "../Process/process.cpp"
+#include "process.h"
 
 vector<process> SJF(queue<process>& readyQueue) {
 	
@@ -17,8 +17,11 @@ vector<process> SJF(queue<process>& readyQueue) {
         sorting.push_back(readyQueue.front());
         readyQueue.pop();
     }
-	// sort the vector
-	sort(sorting.begin(), sorting.end());
+	// sort the vector using a custom sort
+	sort(sorting.begin(), sorting.end(), []( process& p1, process& p2) {
+        return p1.compareProcesses(p2);
+    });
+
 
     // Transfer sorted elements back to the queue
     for (const auto& elem : sorting) {
@@ -31,11 +34,48 @@ vector<process> SJF(queue<process>& readyQueue) {
 		execTime = currentProcess.getBurst();
 		currentProcess.setDoneBurst(execTime);
 		currentTime += execTime;
-		
+		currentProcess.setCurrentTime(currentTime);
+
 		currentProcess.calcProcessTurnaroundTime(currentTime);
     	currentProcess.calcProcessWaitingTime(currentTime);
     	
 		GranttChart.push_back(currentProcess);
+
+		if (readyQueue.size() == 1){
+			process currentProcess = readyQueue.front();
+        	readyQueue.pop();
+			execTime = currentProcess.getBurst();
+			currentProcess.setDoneBurst(execTime);
+			currentTime += execTime;
+			currentProcess.setCurrentTime(currentTime);
+
+			currentProcess.calcProcessTurnaroundTime(currentTime);
+    		currentProcess.calcProcessWaitingTime(currentTime);
+    	
+			GranttChart.push_back(currentProcess);
+		}
+		else { 
+			//remove the first process from the vector
+			 sorting.erase(sorting.begin());
+			//update values of current time for each process
+			for (auto& process : sorting) {
+				process.setCurrentTime(currentTime);
+    		}
+			//resort the vector
+			sort(sorting.begin(), sorting.end(), []( process& p1, process& p2) {
+       			 return p1.compareProcesses(p2);
+    			});
+
+			while (!readyQueue.empty()) {
+    		    readyQueue.pop();
+    		}
+    		// Transfer sorted elements back to the queue
+    		for (const auto& elem : sorting) {
+        		readyQueue.push(elem);
+   			 }	
+
+		}
+		
 	}
     return GranttChart;
 }
@@ -60,7 +100,7 @@ int main(){
 
 	 cout << "Gantt Chart:" << endl;
     for (const auto& event : ganttChart) {
-        cout << "Process " << event.getID() <<" time done: "<< event.getDoneBurst() + event.getWaitingTime()<<endl;
+        cout << "Process " << event.getID() <<" time done: "<< event.getDoneBurst() + event.getWaitingTime() + event.getArrival()<<endl;
     }
     cout << endl;
 
