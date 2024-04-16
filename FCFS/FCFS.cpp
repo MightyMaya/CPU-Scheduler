@@ -47,7 +47,7 @@ bool compare(const process &a,const process &b)
 	return a.getArrival() < b.getArrival();
 }
 //for calculating the average of turnaround or waiting time.
-int calcTotalTurnaroundOrWaiting(vector<int>&values)
+double calcTotalTurnaroundOrWaiting(vector<int>&values)
 {
 	double avg=0;
 	for(auto &val:values)
