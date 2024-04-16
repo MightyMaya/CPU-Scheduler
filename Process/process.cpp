@@ -57,6 +57,13 @@ using namespace std;
         doneBurst = doneBurst_;
     }
 
+    int process::getCurrentTime()const{
+        return currentTime;
+    }
+    void process::setCurrentTime(int currentTime_){
+        currentTime = currentTime_;
+    }
+
     //function to execute the process for 1 second
     void process::execute (){
         this_thread::sleep_for(chrono::seconds(1));
@@ -64,7 +71,7 @@ using namespace std;
     }
     //function to print remaining time of a process
     void process::printRemainingTime(){
-        cout << burst << endl;
+        cout << burst - doneBurst << endl;
     }
 
     //function to calculate waiting time
@@ -77,7 +84,15 @@ using namespace std;
         turnaroundTime = finishTime - this->arrival;
     }
 
-    bool process :: operator<(const process& other) const {
-        return burst < other.burst;
-}
+    // custom function to compare processes using arrival time, burst time and current time
+    bool process::compareProcesses(const process& p1) {
+
+        if ((arrival <= currentTime) && (p1.arrival <= p1.currentTime))
+            return (burst) < (p1.burst); 
+        else if (arrival <= currentTime)
+            return true;    
+        else
+            return false;
+    }
+
 

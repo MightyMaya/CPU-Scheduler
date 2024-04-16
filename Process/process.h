@@ -13,6 +13,7 @@ private:
     int doneBurst=0;
     int waitingTime=0;
     int turnaroundTime=0;
+    int currentTime = 0;
 
 public:
     process();
@@ -28,12 +29,14 @@ public:
     int getTurnaroundTime() const;
     void setTurnaroundTime(int turnaroundTime_);
     int getDoneBurst() const;
-    void setDoneBurst(int doneBurst_);
+    void setDoneBurst(int currentTime_);
+    int getCurrentTime() const;
+    void setCurrentTime(int currentTime_);
     void execute();
     void printRemainingTime();
     void calcProcessWaitingTime(int finishTime);
     void calcProcessTurnaroundTime(int finishTime);
-    bool operator<(const process& other) const;
+    bool compareProcesses(const process& p1);
 };
 
 #endif
