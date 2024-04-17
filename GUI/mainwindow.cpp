@@ -3,14 +3,9 @@
 #include "rr.h"
 #include "rr2.h"
 #include "sjfnon.h"
-using namespace std;
+#include "sjfnon2.h"
 
-int burstTime;
-int QuantumTime;
-int processID;
-queue<process> readyQueue;
-vector<process> ganttChart;
-QTime startT;
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -38,18 +33,17 @@ void MainWindow::on_pushButton_clicked()
 
     if (ui->comboBox->currentIndex() == 2){
         if(ui->comboBox_2->currentIndex() == 1){
-            RR2* rr2 = new RR2(this);
-            rr2->show();
+            sjfnon2* sjfnon22 = new sjfnon2(this);
+            sjfnon22->show();
 
         }
         else{
-            sjfnon * sjf = new sjfnon(this);
-            sjf->show();
+            sjfnon* sjfnon1 = new sjfnon(this);
+            sjfnon1->show();
         }
 
     }
-
-    if (ui->comboBox->currentIndex() == 5){
+    else if (ui->comboBox->currentIndex() == 5){
         if(ui->comboBox_2->currentIndex() == 1){
             RR2* rr2 = new RR2(this);
             rr2->show();

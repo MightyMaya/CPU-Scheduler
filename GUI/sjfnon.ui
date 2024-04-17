@@ -6,17 +6,50 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>699</width>
-    <height>491</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>0</y>
+     <width>141</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QSpinBox" name="burst_2"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="BurstTime_2">
+        <property name="text">
+         <string>Burst Time</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="add_2">
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>400</x>
      <y>30</y>
      <width>371</width>
      <height>111</height>
@@ -35,8 +68,8 @@
   <widget class="QPushButton" name="close">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>380</y>
+     <x>350</x>
+     <y>550</y>
      <width>93</width>
      <height>29</height>
     </rect>
@@ -44,53 +77,6 @@
    <property name="text">
     <string>Close</string>
    </property>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>180</y>
-     <width>141</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QSpinBox" name="ID"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="PID">
-        <property name="text">
-         <string>Process ID</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QSpinBox" name="burst"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="BurstTime">
-        <property name="text">
-         <string>Burst Time</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QPushButton" name="add">
-      <property name="text">
-       <string>Add</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
  </widget>
  <resources/>

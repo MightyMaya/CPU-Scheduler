@@ -33,7 +33,7 @@ void RR2::on_pushButton_clicked()
 {
     counter ++ ;
     burstTime = ui->btime->value();
-    processID = ui->id->value();
+    processID++;
     int arrivalTime = ui->btime_2->value();
     readyQueue.push(process(processID, arrivalTime, burstTime));
     if(counter == numprocesses){

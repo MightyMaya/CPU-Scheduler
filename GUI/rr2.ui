@@ -33,16 +33,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QSpinBox" name="id">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>330</y>
-     <width>42</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QSpinBox" name="btime">
    <property name="geometry">
     <rect>
@@ -56,7 +46,7 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>260</x>
      <y>440</y>
      <width>93</width>
      <height>29</height>
@@ -105,19 +95,6 @@
     <string>number of processes</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>270</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>process ID</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
@@ -134,7 +111,7 @@
   <widget class="QSpinBox" name="btime_2">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>50</x>
      <y>320</y>
      <width>42</width>
      <height>26</height>
@@ -144,7 +121,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>30</x>
      <y>270</y>
      <width>111</width>
      <height>31</height>
@@ -157,16 +134,16 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>150</y>
-     <width>351</width>
-     <height>81</height>
+     <x>40</x>
+     <y>140</y>
+     <width>531</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Impact</family>
-     <pointsize>40</pointsize>
+     <pointsize>60</pointsize>
     </font>
    </property>
    <property name="text">

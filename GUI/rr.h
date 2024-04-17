@@ -11,6 +11,8 @@
 #include <QTime>
 #include <QPainter>
 #include <QTimer> // Include QTimer header
+#include <qtconcurrentrun.h>
+#include <QThread>
 #include "process.h"
 
 namespace Ui {
@@ -22,9 +24,9 @@ class RR : public QDialog {
 
 signals:
     void updateChartNeeded(); // Signal to indicate that UI update is needed
-
+/*
 public slots:
-    void RoundRobin();
+    void RoundRobin();*/
 
 public:
     explicit RR(QWidget *parent = nullptr);

@@ -11,28 +11,28 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    fcfsl.cpp \
     main.cpp \
     mainwindow.cpp \
     process.cpp \
     rr.cpp \
     rr2.cpp \
-    sjfnon.cpp
+    sjfnon.cpp \
+    sjfnon2.cpp
 
 HEADERS += \
-    fcfsl.h \
     mainwindow.h \
     process.h \
     rr.h \
     rr2.h \
-    sjfnon.h
+    sjfnon.h \
+    sjfnon2.h
 
 FORMS += \
-    fcfsl.ui \
     mainwindow.ui \
     rr.ui \
     rr2.ui \
-    sjfnon.ui
+    sjfnon.ui \
+    sjfnon2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

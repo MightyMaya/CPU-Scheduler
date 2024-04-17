@@ -2,6 +2,7 @@
 #define SJFNON_H
 
 #include <QDialog>
+#include <iostream>
 #include <queue>
 #include <vector>
 #include <thread>
@@ -10,7 +11,10 @@
 #include <QTime>
 #include <QPainter>
 #include <QTimer> // Include QTimer header
+#include <qtconcurrentrun.h>
+#include <QThread>
 #include "process.h"
+
 
 namespace Ui {
 class sjfnon;
@@ -26,11 +30,12 @@ signals:
 private slots:
     void updateChart(); // Slot for updating the chart
     void on_close_clicked();
-    void on_add_clicked();
-
+    /*
 public slots:
     void SJFNon();
+*/
 
+    void on_add_2_clicked();
 
 public:
     explicit sjfnon(QWidget *parent = nullptr);
