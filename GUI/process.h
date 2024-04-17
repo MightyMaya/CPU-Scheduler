@@ -14,6 +14,7 @@ private:
     int waitingTime = 0;
     int turnaroundTime = 0;
     int priority = 3;
+    int currentTime = 0;
 
 public:
     process();
@@ -40,6 +41,7 @@ public:
     void printRemainingTime();
     void calcProcessWaitingTime(int finishTime);
     void calcProcessTurnaroundTime(int finishTime);
+    bool compareProcesses(const process& p1);
 };
 
 #endif

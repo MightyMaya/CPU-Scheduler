@@ -14,6 +14,7 @@ private:
     int waitingTime = 0;
     int turnaroundTime = 0;
     int priority = 3;
+    int currentTime = 0;
 
 public:
     process();
