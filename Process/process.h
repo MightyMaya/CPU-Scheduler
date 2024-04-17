@@ -1,15 +1,15 @@
 #ifndef PROCESS_H
 #define PROCESS_H
 
-#include <iostream>
-#include <thread>
-#include <chrono>
+//#include <iostream>
+//#include <chrono>
 
 class process {
 private:
     int ID;
     int arrival;
     int burst;
+    int execTime;
     int doneBurst = 0;
     int waitingTime = 0;
     int turnaroundTime = 0;
@@ -21,6 +21,8 @@ public:
     process(int id, int arrival_, int burst_, int priority_);
     int getID() const;
     void setID(int id);
+    int getexecTime() const;
+    void setexecTime(int execTime_);
     int getArrival() const;
     void setArrival(int arrival_);
     int getBurst() const;
@@ -34,7 +36,7 @@ public:
     void setTurnaroundTime(int turnaroundTime_);
     int getDoneBurst() const;
     void setDoneBurst(int doneBurst_);
-    void execute();
+    //void execute();
     void printRemainingTime();
     void calcProcessWaitingTime(int finishTime);
     void calcProcessTurnaroundTime(int finishTime);
