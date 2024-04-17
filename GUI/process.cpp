@@ -83,8 +83,11 @@ void process::setexecTime(int execTime_){
     execTime = execTime_;
 }
 
-bool process::operator<(const process& other) const {
-    return priority < other.priority;
+int process::getCurrentTime()const{
+    return currentTime;
+}
+void process::setCurrentTime(int currentTime_){
+    currentTime = currentTime_;
 }
 
 //function to execute the process for 1 second

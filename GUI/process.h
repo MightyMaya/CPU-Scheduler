@@ -30,13 +30,14 @@ public:
     void setBurst(int burst_);
     int getPriority()const;
     void setPriority(int priority_);
-    bool operator<(const process& other) const;
     int getWaitingTime() const;
     void setWaitingTime(int waitingTime_);
     int getTurnaroundTime() const;
     void setTurnaroundTime(int turnaroundTime_);
     int getDoneBurst() const;
     void setDoneBurst(int doneBurst_);
+    int getCurrentTime() const;
+    void setCurrentTime(int currentTime_);
     //void execute();
     void printRemainingTime();
     void calcProcessWaitingTime(int finishTime);

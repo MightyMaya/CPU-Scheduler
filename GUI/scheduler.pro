@@ -16,20 +16,23 @@ SOURCES += \
     mainwindow.cpp \
     process.cpp \
     rr.cpp \
-    rr2.cpp
+    rr2.cpp \
+    sjfnon.cpp
 
 HEADERS += \
     fcfsl.h \
     mainwindow.h \
     process.h \
     rr.h \
-    rr2.h
+    rr2.h \
+    sjfnon.h
 
 FORMS += \
     fcfsl.ui \
     mainwindow.ui \
     rr.ui \
-    rr2.ui
+    rr2.ui \
+    sjfnon.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

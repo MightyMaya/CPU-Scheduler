@@ -3,12 +3,12 @@
 
 using namespace std;
 
-int burstTime;
-int QuantumTime;
-int processID;
-queue<process> readyQueue;
-vector<process> ganttChart;
-QTime startT;
+extern int burstTime;
+extern int QuantumTime;
+extern int processID;
+extern queue<process> readyQueue;
+extern vector<process> ganttChart;
+extern QTime startT;
 
 RR::RR(QWidget *parent) : QDialog(parent), ui(new Ui::RR) {
     ui->setupUi(this);

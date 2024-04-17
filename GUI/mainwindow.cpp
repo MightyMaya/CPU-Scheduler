@@ -2,7 +2,15 @@
 #include "ui_mainwindow.h"
 #include "rr.h"
 #include "rr2.h"
+#include "sjfnon.h"
+using namespace std;
 
+int burstTime;
+int QuantumTime;
+int processID;
+queue<process> readyQueue;
+vector<process> ganttChart;
+QTime startT;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,6 +35,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+
+    if (ui->comboBox->currentIndex() == 2){
+        if(ui->comboBox_2->currentIndex() == 1){
+            RR2* rr2 = new RR2(this);
+            rr2->show();
+
+        }
+        else{
+            sjfnon * sjf = new sjfnon(this);
+            sjf->show();
+        }
+
+    }
+
     if (ui->comboBox->currentIndex() == 5){
         if(ui->comboBox_2->currentIndex() == 1){
             RR2* rr2 = new RR2(this);
