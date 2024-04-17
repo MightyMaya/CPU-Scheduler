@@ -108,4 +108,13 @@ void process::calcProcessTurnaroundTime(int finishTime) {
     turnaroundTime = finishTime - this->arrival;
 }
 
+// custom function to compare processes using arrival time, burst time and current time
+    bool process::compareProcesses(const process& p1) {
 
+        if ((arrival <= currentTime) && (p1.arrival <= p1.currentTime))
+            return (burst) < (p1.burst); 
+        else if (arrival <= currentTime)
+            return true;    
+        else
+            return false;
+    }

@@ -40,6 +40,7 @@ public:
     void printRemainingTime();
     void calcProcessWaitingTime(int finishTime);
     void calcProcessTurnaroundTime(int finishTime);
+    bool compareProcesses(const process& p1);
 };
 
 #endif
