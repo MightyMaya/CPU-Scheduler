@@ -92,6 +92,7 @@ void SJFNon() {
             while (!readyQueue2.empty()) {
                 process currentProcess = readyQueue2.front();
                 readyQueue2.pop();
+
                 execTime = currentProcess.getBurst();
                 currentProcess.setDoneBurst(execTime);
                 while(QTime::currentTime() < startTime.addSecs(execTime)){};
@@ -100,8 +101,6 @@ void SJFNon() {
 
                 currentProcess.calcProcessTurnaroundTime(currentTime);
                 currentProcess.calcProcessWaitingTime(currentTime);
-
-                ganttChart2.push_back(currentProcess);
 
                 if (readyQueue2.size() == 1){
                     process currentProcess = readyQueue2.front();
@@ -113,10 +112,11 @@ void SJFNon() {
 
                     currentProcess.calcProcessTurnaroundTime(currentTime);
                     currentProcess.calcProcessWaitingTime(currentTime);
-
+                    sorting.erase(sorting.begin());
                     ganttChart2.push_back(currentProcess);
                 }
                 else {
+                    ganttChart2.push_back(currentProcess);
                     //remove the first process from the vector
                     sorting.erase(sorting.begin());
                     //update values of current time for each process
