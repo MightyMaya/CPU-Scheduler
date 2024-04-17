@@ -1,0 +1,10 @@
+release/fcfsl.o
+release/main.o
+release/mainwindow.o
+release/process.o
+release/rr.o
+release/rr2.o
+release/moc_fcfsl.o
+release/moc_mainwindow.o
+release/moc_rr.o
+release/moc_rr2.o

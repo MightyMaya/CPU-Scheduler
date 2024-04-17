@@ -27,7 +27,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-
     if (ui->comboBox->currentIndex() == 5){
         if(ui->comboBox_2->currentIndex() == 1){
             RR2* rr2 = new RR2(this);
