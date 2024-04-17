@@ -76,18 +76,26 @@ void process::setDoneBurst(int doneBurst_) {
     doneBurst = doneBurst_;
 }
 
+int process::getexecTime() const{
+    return execTime;
+}
+void process::setexecTime(int execTime_){
+    execTime = execTime_;
+}
+
 bool process::operator<(const process& other) const {
     return priority < other.priority;
 }
 
 //function to execute the process for 1 second
-void process::execute() {
+/*void process::execute() {
     this_thread::sleep_for(chrono::seconds(1));
     burst--; //NEEDS TO CHANGE`
-}
+}*/
+
 //function to print remaining time of a process
 void process::printRemainingTime() {
-    cout << burst << endl;
+    //cout << burst << endl;
 }
 
 //function to calculate waiting time
