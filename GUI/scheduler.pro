@@ -15,6 +15,10 @@ SOURCES += \
     fcfs2.cpp \
     main.cpp \
     mainwindow.cpp \
+    pri.cpp \
+    pri2.cpp \
+    prinon.cpp \
+    prinon2.cpp \
     process.cpp \
     rr.cpp \
     rr2.cpp \
@@ -27,6 +31,10 @@ HEADERS += \
     fcfs.h \
     fcfs2.h \
     mainwindow.h \
+    pri.h \
+    pri2.h \
+    prinon.h \
+    prinon2.h \
     process.h \
     rr.h \
     rr2.h \
@@ -39,6 +47,10 @@ FORMS += \
     fcfs.ui \
     fcfs2.ui \
     mainwindow.ui \
+    pri.ui \
+    pri2.ui \
+    prinon.ui \
+    prinon2.ui \
     rr.ui \
     rr2.ui \
     sjf.ui \

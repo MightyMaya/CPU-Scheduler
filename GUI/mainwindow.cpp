@@ -6,6 +6,10 @@
 #include "sjfnon2.h"
 #include "sjf.h"
 #include "sjf2.h"
+#include "prinon.h"
+#include "prinon2.h"
+#include "pri.h"
+#include "pri2.h"
 
 
 using namespace std;
@@ -79,6 +83,38 @@ void MainWindow::on_pushButton_clicked()
             sjfnon* sjfnon1 = new sjfnon(this);
             sjfnon1->show();
             connect(sjfnon1, &sjfnon::childClosed, this, &MainWindow::close);
+            hide();
+        }
+
+    }
+    else if (ui->comboBox->currentIndex() == 3){
+        if(ui->comboBox_2->currentIndex() == 1){
+            pri2* pri22 = new pri2(this);
+            pri22->show();
+            connect(pri22, &pri2::childClosed, this, &MainWindow::close);
+            hide();
+
+        }
+        else{
+            pri* pri11 = new pri(this);
+            pri11->show();
+            connect(pri11, &pri::childClosed, this, &MainWindow::close);
+            hide();
+        }
+
+    }
+    else if (ui->comboBox->currentIndex() == 4){
+        if(ui->comboBox_2->currentIndex() == 1){
+            prinon2* pri202 = new prinon2(this);
+            pri202->show();
+            connect(pri202, &prinon2::childClosed, this, &MainWindow::close);
+            hide();
+
+        }
+        else{
+            prinon* pri101 = new prinon(this);
+            pri101->show();
+            connect(pri101, &prinon::childClosed, this, &MainWindow::close);
             hide();
         }
 
