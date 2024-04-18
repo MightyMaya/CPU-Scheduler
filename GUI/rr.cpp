@@ -5,8 +5,13 @@ using namespace std;
 
 bool isRunning = false; // Flag to control the execution of RoundRobin
  int burstTime;
- int QuantumTime;
+ int QuantumTime=1;
  int processID;
+ double avgwaitt;
+ double avgturnt;
+ int sumwaitt=0;
+ int sumturnt=0;
+ double nn=0;
  queue<process> readyQueue;
  vector<process> ganttChart;
  QTime startT;
@@ -18,6 +23,9 @@ RR::RR(QWidget *parent) : QDialog(parent), ui(new Ui::RR) {
     timer = new QTimer(this);
     startT = QTime::currentTime();
     connect(timer, &QTimer::timeout, this, &RR::updateChart); // Connect timer timeout signal to updateChart slot
+    connect(timer, &QTimer::timeout, this, &RR::updateAvgTurnt);
+    connect(timer, &QTimer::timeout, this, &RR::updateAvgTurnt2);
+    ui->timeQuantum->setValue(1);
     timer->start(1000); // Start the timer with 1-second interval
     QtConcurrent::run(RoundRobin);
 }
@@ -66,6 +74,13 @@ void RR::paintEvent(QPaintEvent *event) {
     }
 }
 
+void RR::updateAvgTurnt() {
+    if(nn>0)ui->avgturnt->setText(QString::number(sumturnt / nn));
+}
+
+void RR::updateAvgTurnt2() {
+    if(nn>0)ui->avgturnt_2->setText(QString::number(sumwaitt / nn));
+}
 
 void RR::updateChart() {
     update(); // Update the UI
@@ -74,6 +89,7 @@ void RR::updateChart() {
 void RR::on_add_clicked() {
     burstTime = ui->BurstTime->value();
     QuantumTime = ui->timeQuantum->value();
+    if(QuantumTime == 0)QuantumTime =1;
     processID++;
     QTime currentTime = QTime::currentTime();
     int arrivalTime = currentTime.secsTo(startT);
@@ -89,6 +105,10 @@ void RoundRobin() {
             QTime startTime = QTime::currentTime();
             process currentProcess = readyQueue.front();
             readyQueue.pop();
+            if(currentProcess.getArrival()>currentTime){
+                readyQueue.push(currentProcess);
+                continue;
+            }
             int execTime = min(QuantumTime, currentProcess.getBurst() - currentProcess.getDoneBurst());
             currentProcess.setexecTime(execTime);
             while (QTime::currentTime() < startTime.addSecs(execTime)) {}
@@ -96,15 +116,25 @@ void RoundRobin() {
             currentProcess.setDoneBurst(execTime + currentProcess.getDoneBurst());
             if ((currentProcess.getBurst() - currentProcess.getDoneBurst()) > 0) {
                 readyQueue.push(currentProcess);
-            } else {
+            }
+            else{
                 currentProcess.calcProcessTurnaroundTime(currentTime);
                 currentProcess.calcProcessWaitingTime(currentTime);
+                sumwaitt += currentProcess.getWaitingTime();
+                sumturnt += currentProcess.getTurnaroundTime();
+                nn++;
             }
             ganttChart.push_back(currentProcess);
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
     }
 }
+
+void RR::closeEvent(QCloseEvent *event) {
+    emit childClosed();
+    event->accept();
+}
+
 
 
 

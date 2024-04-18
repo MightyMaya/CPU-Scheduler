@@ -14,6 +14,7 @@
 #include <qtconcurrentrun.h>
 #include <QThread>
 #include "process.h"
+#include <QCloseEvent>
 
 
 namespace Ui {
@@ -26,16 +27,15 @@ class sjfnon : public QDialog
 
 signals:
     void updateChartNeeded(); // Signal to indicate that UI update is needed
+    void childClosed();
 
 private slots:
     void updateChart(); // Slot for updating the chart
     void on_close_clicked();
-    /*
-public slots:
-    void SJFNon();
-*/
-
+    void closeEvent(QCloseEvent *event);
     void on_add_2_clicked();
+    void updateAvgTurnt();
+    void updateAvgTurnt2();
 
 public:
     explicit sjfnon(QWidget *parent = nullptr);

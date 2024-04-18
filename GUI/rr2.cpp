@@ -14,6 +14,8 @@ RR2::RR2(QWidget *parent)
     , ui(new Ui::RR2)
 {
     ui->setupUi(this);
+    ui->quantum->setValue(1);
+
 }
 
 RR2::~RR2()
@@ -43,3 +45,7 @@ void RR2::on_pushButton_clicked()
     }
 }
 
+void RR2::closeEvent(QCloseEvent *event) {
+    emit childClosed();
+    event->accept();
+}

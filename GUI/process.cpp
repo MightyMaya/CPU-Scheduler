@@ -8,11 +8,13 @@ process::process() {
     ID = 0;
     arrival = 0;
     burst = 1;
+    remainingBurst = burst;
 }
 process::process(int id, int arrival_, int burst_) {
     ID = id;
     arrival = arrival_;
     burst = burst_;
+    remainingBurst = burst_;
 }
 
 process::process(int id, int arrival_, int burst_, int priority_)
@@ -21,7 +23,15 @@ process::process(int id, int arrival_, int burst_, int priority_)
     arrival = arrival_;
     burst = burst_;
     priority = priority_;
+    remainingBurst = burst_;
 
+}
+
+int process::getRemainingBurst() const{
+    return remainingBurst;
+}
+void process::setRemainingBurst(int remainingBurst_){
+    remainingBurst = remainingBurst_;
 }
 
 int process::getID()const {

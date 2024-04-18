@@ -7,6 +7,8 @@ extern int burstTime2;
 extern int QuantumTime2;
 extern int processID2;
 extern queue<process> readyQueue2;
+extern int TIMEEEEE;
+extern map<int, vector<process>> m;
 int numprocesses2;
 int counter2 = 0;
 
@@ -28,7 +30,8 @@ void sjfnon2::on_pushButton_clicked()
     burstTime2 = ui->btime->value();
     processID2++;
     int arrivalTime = ui->btime_2->value();
-    readyQueue2.push(process(processID2, arrivalTime, burstTime2));
+    m[arrivalTime].push_back(process(processID2, arrivalTime, burstTime2));
+    //readyQueue2.push(process(processID2, arrivalTime, burstTime2));
     if(counter2 == numprocesses2){
         sjfnon* sjfnonn = new sjfnon(this);
         sjfnonn->show();
@@ -42,5 +45,7 @@ void sjfnon2::on_choose_clicked()
     numprocesses2 = ui->num->value();
 }
 
-
-
+void sjfnon2::closeEvent(QCloseEvent *event) {
+    emit childClosed();
+    event->accept();
+}

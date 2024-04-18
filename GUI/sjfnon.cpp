@@ -1,14 +1,29 @@
 #include "sjfnon.h"
 #include "ui_sjfnon.h"
+#include <map>
 
 using namespace std;
+void add_time();
+map<int, vector<process>> m;
+int burstTime2;
+int QuantumTime2;
+int processID2;
+double avgwaitt2;
+double avgturnt2;
+int sumwaitt2=0;
+int sumturnt2=0;
+double nn2=0;
+class ComparisonClass {
+public:
+    bool operator() (process p1, process p2) {
+        return p1.getBurst() > p2.getBurst();
+    }
+};
 
- int burstTime2;
- int QuantumTime2;
- int processID2;
- queue<process> readyQueue2;
- vector<process> ganttChart2;
- QTime startT2;
+priority_queue <process, vector<process>, ComparisonClass> readyQueue2;
+vector<process> ganttChart2;
+int TIMEEEEE = 0;
+QTime startT2;
 bool isRunning2 = false; // Flag to control the execution of RoundRobin
 void SJFNon();
 
@@ -16,18 +31,34 @@ sjfnon::sjfnon(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::sjfnon)
 {
+
     ui->setupUi(this);
     timer = new QTimer(this);
     startT2 = QTime::currentTime();
     connect(timer, &QTimer::timeout, this, &sjfnon::updateChart); // Connect timer timeout signal to updateChart slot
+    connect(timer, &QTimer::timeout, this, &sjfnon::updateAvgTurnt);
+    connect(timer, &QTimer::timeout, this, &sjfnon::updateAvgTurnt2);
     timer->start(1000); // Start the timer with 1-second interval
     QtConcurrent::run(SJFNon);
+    QtConcurrent::run(add_time);
+
 }
 
 
+void add_time(){
+    while(1){
+    qDebug()<<"add_time";
+    for (auto processes : m[TIMEEEEE]){
+        readyQueue2.push(processes);
+        qDebug()<<processes.getID();
+        qDebug()<<TIMEEEEE;
+    }
+    TIMEEEEE++;
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
+    }
+}
 
 void sjfnon::paintEvent(QPaintEvent *event) {
-    qDebug()<<"painting";
     QPainter painter(this);
     int x = 30;
     int y = 300;
@@ -60,112 +91,86 @@ void sjfnon::paintEvent(QPaintEvent *event) {
         }
     }
 }
+
 void sjfnon::updateChart() {
+
     update(); // Update the UI
+
 }
 
 void SJFNon() {
-    int currentTime = 0;
-    vector<process> sorting;
     isRunning2 = true; // Set the flag to indicate RoundRobin is running
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
     while (isRunning2) { // Loop as long as the flag is true
+        int currentTime = 0;
         while (!readyQueue2.empty()) {
             qDebug()<<"running";
             QTime startTime = QTime::currentTime();
             int execTime = 0;
-            // transfer conents of queue to a vector
-            while (!readyQueue2.empty()) {
-                sorting.push_back(readyQueue2.front());
-                readyQueue2.pop();
-            }
-            // sort the vector using a custom sort
-            sort(sorting.begin(), sorting.end(), []( process& p1, process& p2) {
-                return p1.compareProcesses(p2);
-            });
+            process currentProcess = readyQueue2.top();
+            readyQueue2.pop();
+            execTime = currentProcess.getBurst();
+            while(QTime::currentTime() < startTime.addSecs(execTime)){
+                qDebug()<<currentProcess.getID();
+            };
+            currentTime += execTime;
+            currentProcess.setCurrentTime(currentTime);
+            currentProcess.calcProcessTurnaroundTime(currentTime);
+            currentProcess.calcProcessWaitingTime(currentTime);
+            sumwaitt2 += currentProcess.getWaitingTime();
+            sumturnt2 += currentProcess.getTurnaroundTime();
+            nn2++;
+            ganttChart2.push_back(currentProcess);
 
-
-            // Transfer sorted elements back to the queue
-            for (const auto& elem : sorting) {
-                readyQueue2.push(elem);
-            }
-
-            while (!readyQueue2.empty()) {
-                process currentProcess = readyQueue2.front();
-                readyQueue2.pop();
-
-                execTime = currentProcess.getBurst();
-                currentProcess.setDoneBurst(execTime);
-                while(QTime::currentTime() < startTime.addSecs(execTime)){};
-                currentTime += execTime;
-                currentProcess.setCurrentTime(currentTime);
-
-                currentProcess.calcProcessTurnaroundTime(currentTime);
-                currentProcess.calcProcessWaitingTime(currentTime);
-
-                if (readyQueue2.size() == 1){
-                    process currentProcess = readyQueue2.front();
-                    readyQueue2.pop();
-                    execTime = currentProcess.getBurst();
-                    currentProcess.setDoneBurst(execTime);
-                    currentTime += execTime;
-                    currentProcess.setCurrentTime(currentTime);
-
-                    currentProcess.calcProcessTurnaroundTime(currentTime);
-                    currentProcess.calcProcessWaitingTime(currentTime);
-                    sorting.erase(sorting.begin());
-                    ganttChart2.push_back(currentProcess);
-                }
-                else {
-                    ganttChart2.push_back(currentProcess);
-                    //remove the first process from the vector
-                    sorting.erase(sorting.begin());
-                    //update values of current time for each process
-                    for (auto& process : sorting) {
-                        process.setCurrentTime(currentTime);
-                    }
-                    //resort the vector
-                    sort(sorting.begin(), sorting.end(), []( process& p1, process& p2) {
-                        return p1.compareProcesses(p2);
-                    });
-
-                    while (!readyQueue2.empty()) {
-                        readyQueue2.pop();
-                    }
-                    // Transfer sorted elements back to the queue
-                    for (const auto& elem : sorting) {
-                        readyQueue2.push(elem);
-                    }
-
-                }
-
-            }
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
+
     }
 
 }
 
+
 sjfnon::~sjfnon()
+
 {
+
     delete ui;
+
 }
 
 void sjfnon::on_close_clicked()
-{
-    close();
-    isRunning2 = false;
-}
 
+{
+
+    close();
+
+    isRunning2 = false;
+
+}
 
 
 
 void sjfnon::on_add_2_clicked()
+
 {
+
     burstTime2 = ui->burst_2->value();
     processID2++;
     QTime currentTime = QTime::currentTime();
     int arrivalTime = currentTime.secsTo(startT2);
     readyQueue2.push(process(processID2, arrivalTime, burstTime2));
     qDebug()<<"readyQueue updated";
+
 }
 
+void sjfnon::closeEvent(QCloseEvent *event) {
+    emit childClosed();
+    event->accept();
+}
+
+void sjfnon::updateAvgTurnt() {
+    if(nn2>0)ui->avgturnt->setText(QString::number(sumturnt2 / nn2));
+}
+
+void sjfnon::updateAvgTurnt2() {
+    if(nn2>0)ui->avgturnt_2->setText(QString::number(sumwaitt2 / nn2));
+}

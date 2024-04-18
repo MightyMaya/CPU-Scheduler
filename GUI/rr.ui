@@ -26,7 +26,7 @@
   <widget class="QSpinBox" name="timeQuantum">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>750</x>
      <y>170</y>
      <width>41</width>
      <height>21</height>
@@ -49,10 +49,10 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>150</y>
+     <x>610</x>
+     <y>160</y>
      <width>121</width>
-     <height>61</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -107,6 +107,52 @@
    </property>
    <property name="text">
     <string>close</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>average waiting time</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>250</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>average turnaround time</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="avgturnt">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>250</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="avgturnt_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>250</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
    </property>
   </widget>
  </widget>

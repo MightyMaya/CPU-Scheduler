@@ -14,6 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -32,6 +33,10 @@ public:
     QPushButton *add_2;
     QLabel *title;
     QPushButton *close;
+    QLabel *label_5;
+    QLineEdit *avgturnt_2;
+    QLineEdit *avgturnt;
+    QLabel *label;
 
     void setupUi(QDialog *sjfnon)
     {
@@ -74,6 +79,18 @@ public:
         close = new QPushButton(sjfnon);
         close->setObjectName("close");
         close->setGeometry(QRect(350, 550, 93, 29));
+        label_5 = new QLabel(sjfnon);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(450, 160, 171, 20));
+        avgturnt_2 = new QLineEdit(sjfnon);
+        avgturnt_2->setObjectName("avgturnt_2");
+        avgturnt_2->setGeometry(QRect(200, 160, 113, 26));
+        avgturnt = new QLineEdit(sjfnon);
+        avgturnt->setObjectName("avgturnt");
+        avgturnt->setGeometry(QRect(640, 160, 113, 26));
+        label = new QLabel(sjfnon);
+        label->setObjectName("label");
+        label->setGeometry(QRect(50, 160, 161, 20));
 
         retranslateUi(sjfnon);
 
@@ -87,6 +104,8 @@ public:
         add_2->setText(QCoreApplication::translate("sjfnon", "Add", nullptr));
         title->setText(QCoreApplication::translate("sjfnon", "SJF Non-Preemptive", nullptr));
         close->setText(QCoreApplication::translate("sjfnon", "Close", nullptr));
+        label_5->setText(QCoreApplication::translate("sjfnon", "average turnaround time", nullptr));
+        label->setText(QCoreApplication::translate("sjfnon", "average waiting time", nullptr));
     } // retranslateUi
 
 };

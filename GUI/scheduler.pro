@@ -16,6 +16,8 @@ SOURCES += \
     process.cpp \
     rr.cpp \
     rr2.cpp \
+    sjf.cpp \
+    sjf2.cpp \
     sjfnon.cpp \
     sjfnon2.cpp
 
@@ -24,6 +26,8 @@ HEADERS += \
     process.h \
     rr.h \
     rr2.h \
+    sjf.h \
+    sjf2.h \
     sjfnon.h \
     sjfnon2.h
 
@@ -31,6 +35,8 @@ FORMS += \
     mainwindow.ui \
     rr.ui \
     rr2.ui \
+    sjf.ui \
+    sjf2.ui \
     sjfnon.ui \
     sjfnon2.ui
 

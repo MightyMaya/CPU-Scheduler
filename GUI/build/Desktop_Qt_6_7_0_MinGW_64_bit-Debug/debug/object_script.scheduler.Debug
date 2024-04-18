@@ -3,10 +3,14 @@ debug/mainwindow.o
 debug/process.o
 debug/rr.o
 debug/rr2.o
+debug/sjf.o
+debug/sjf2.o
 debug/sjfnon.o
 debug/sjfnon2.o
 debug/moc_mainwindow.o
 debug/moc_rr.o
 debug/moc_rr2.o
+debug/moc_sjf.o
+debug/moc_sjf2.o
 debug/moc_sjfnon.o
 debug/moc_sjfnon2.o
