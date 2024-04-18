@@ -36,7 +36,22 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
 
-    if (ui->comboBox->currentIndex() == 1){
+    if(ui->comboBox->currentIndex() == 0){
+        if(ui->comboBox_2->currentIndex() == 1){
+            FCFS2* FF2 = new FCFS2(this);
+            FF2->show();
+            connect(FF2, &FCFS2::childClosed, this, &MainWindow::close);
+            hide();
+
+        }
+        else{
+            fcfs* ff = new fcfs(this);
+            ff->show();
+            connect(ff, &fcfs::childClosed, this, &MainWindow::close);
+            hide();
+        }
+    }
+    else if (ui->comboBox->currentIndex() == 1){
         if(ui->comboBox_2->currentIndex() == 1){
             sjf2* sjf22 = new sjf2(this);
             sjf22->show();
@@ -84,6 +99,7 @@ void MainWindow::on_pushButton_clicked()
         }
 
     }
+
 
 }
 

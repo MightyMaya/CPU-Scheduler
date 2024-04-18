@@ -11,6 +11,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    fcfs.cpp \
+    fcfs2.cpp \
     main.cpp \
     mainwindow.cpp \
     process.cpp \
@@ -22,6 +24,8 @@ SOURCES += \
     sjfnon2.cpp
 
 HEADERS += \
+    fcfs.h \
+    fcfs2.h \
     mainwindow.h \
     process.h \
     rr.h \
@@ -32,6 +36,8 @@ HEADERS += \
     sjfnon2.h
 
 FORMS += \
+    fcfs.ui \
+    fcfs2.ui \
     mainwindow.ui \
     rr.ui \
     rr2.ui \

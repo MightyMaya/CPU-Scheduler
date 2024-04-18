@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "fcfs.h"
+#include "fcfs2.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

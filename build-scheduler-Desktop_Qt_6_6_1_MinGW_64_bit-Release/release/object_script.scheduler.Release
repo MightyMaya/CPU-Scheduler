@@ -1,0 +1,16 @@
+release/fcfs.o
+release/fcfs2.o
+release/main.o
+release/mainwindow.o
+release/process.o
+release/rr.o
+release/rr2.o
+release/sjfnon.o
+release/sjfnon2.o
+release/moc_fcfs.o
+release/moc_fcfs2.o
+release/moc_mainwindow.o
+release/moc_rr.o
+release/moc_rr2.o
+release/moc_sjfnon.o
+release/moc_sjfnon2.o
