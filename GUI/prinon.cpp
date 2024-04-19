@@ -40,7 +40,7 @@ prinon::prinon(QWidget *parent)
     connect(timer, &QTimer::timeout, this, &prinon::updateAvgTurnt2);
     timer->start(1000); // Start the timer with 1-second interval
     QtConcurrent::run(PRINon);
-    QtConcurrent::run(add_time5);
+
 
 }
 
@@ -99,7 +99,8 @@ void prinon::updateChart() {
 
 void PRINon() {
     isRunning5 = true; // Set the flag to indicate RoundRobin is running
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
+    QtConcurrent::run(add_time5);
+    //std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
     while (isRunning5) { // Loop as long as the flag is true
         int currentTime = 0;
         while (!readyQueue5.empty()) {

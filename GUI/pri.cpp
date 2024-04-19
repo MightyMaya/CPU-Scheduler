@@ -114,7 +114,7 @@ void PRI() {
             //currentProcess.setexecTime(execTime);
             while (QTime::currentTime() < startTime.addSecs(1)) {}
             currentTime += 1;
-            currentProcess.setDoneBurst(execTime + currentProcess.getDoneBurst());
+            currentProcess.setDoneBurst(currentTime + currentProcess.getDoneBurst());
             currentProcess.setRemainingBurst(execTime - 1);
             //currentProcess.setexecTime(execTime);
             if (currentProcess.getRemainingBurst() > 0) {

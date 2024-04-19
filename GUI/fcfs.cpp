@@ -10,7 +10,7 @@
 using namespace std;
 
 
-bool isRunning1 = false; // Flag to control the execution of RoundRobin
+bool isRunning1 = false; // Flag to control the execution
 vector<process> processes1;
 vector<process> ganttChart1;
 QTime startT1;

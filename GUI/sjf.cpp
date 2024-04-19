@@ -113,7 +113,7 @@ void SJF() {
             //currentProcess.setexecTime(execTime);
             while (QTime::currentTime() < startTime.addSecs(1)) {}
             currentTime += 1;
-            currentProcess.setDoneBurst(execTime + currentProcess.getDoneBurst());
+            currentProcess.setDoneBurst(currentTime + currentProcess.getDoneBurst());
             currentProcess.setRemainingBurst(execTime - 1);
             //currentProcess.setexecTime(execTime);
             if (currentProcess.getRemainingBurst() > 0) {
@@ -157,7 +157,7 @@ void sjf::on_add_3_clicked()
     QTime currentTime = QTime::currentTime();
     int arrivalTime = currentTime.secsTo(startT3);
     readyQueue3.push(process(processID3, arrivalTime, burstTime3));
-    qDebug()<<"readyQueue updated";
+    //qDebug()<<"readyQueue updated";
 
 }
 

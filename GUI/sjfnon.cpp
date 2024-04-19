@@ -67,7 +67,7 @@ void sjfnon::paintEvent(QPaintEvent *event) {
     font.setPointSize(5); // Adjust font size as needed
     painter.setFont(font);
     painter.setBrush(Qt::white);
-    painter.drawRect(10, 290, 1000, 120);
+    painter.drawRect(10, 290, 780, 120);
     for (const auto& p : ganttChart2) {
         QColor color = QColor::fromHsl((p.getID() * 30) % 360, 255, 150); // Adjust saturation and lightness as needed
         painter.setBrush(color);
@@ -83,13 +83,13 @@ void sjfnon::paintEvent(QPaintEvent *event) {
             y = 420;
             x = 30;
             painter.setBrush(Qt::white);
-            painter.drawRect(10, 410, 1000, 120);
+            painter.drawRect(10, 410, 780, 120);
         }
         else if(x>770 && y == 420){
             y = 300;
             x = 30;
             painter.setBrush(Qt::white);
-            painter.drawRect(10, 290, 1000, 120);
+            painter.drawRect(10, 290, 780, 120);
         }
     }
 }
