@@ -9,7 +9,7 @@ using namespace std;
 	This class is needed to override the push/push_back top/front descrepancy.
 */
 
-bool NotSorted::empty() const {
+bool NotSorted::empty() {
 	return readyQueue.empty();
 }
 void NotSorted::push(process p)  {

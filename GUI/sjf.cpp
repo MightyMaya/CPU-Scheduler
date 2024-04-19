@@ -74,8 +74,10 @@ void sjf::paintEvent(QPaintEvent *event) {
         painter.drawRect(x, y, 1*30, height);
         QString pidText = QString("PID: %1").arg(p.getID());
         painter.drawText(x + 5, y + height / 3, pidText);
-        QString execTimeText = QString("RemT: %1").arg(p.getRemainingBurst());
-        painter.drawText(x + 2, y + (height * 2) / 3, execTimeText);
+        QString execTimeText = QString("ExcT: %1").arg(p.getBurst()-p.getRemainingBurst());
+        painter.drawText(x + 5, y + (height * 2) / 3 - 7, execTimeText);
+        QString remTimeText = QString("RemT: %1").arg(p.getRemainingBurst());
+        painter.drawText(x + 2, y + (height ) -15, remTimeText);
         x += 1*30 +10;
         if(x>770 && y == 300){
             y = 420;

@@ -57,7 +57,9 @@ void fcfs::paintEvent(QPaintEvent *event) {
         QString pidText = QString("PID: %1").arg(p.getID());
         painter.drawText(x + 5, y + height / 3, pidText);
         QString execTimeText = QString("ExcT: %1").arg(p.getexecTime());
-        painter.drawText(x + 5, y + (height * 2) / 3, execTimeText);
+        painter.drawText(x + 5, y + (height * 2) / 3 - 7, execTimeText);
+        QString remTimeText = QString("RemT: %1").arg(p.getRemainingBurst());
+        painter.drawText(x + 2, y + (height ) -15, remTimeText);
         x += p.getexecTime()*30 +10;
         if(x>770 && y == 300){
             y = 420;
@@ -118,7 +120,9 @@ void firstComeFirstServed() {
             int execTime = currentProcess.getBurst();
 
             currentProcess.setexecTime(execTime);
-            while (QTime::currentTime() < startTime.addSecs(execTime)) {}
+            while (QTime::currentTime() < startTime.addSecs(execTime)) {
+                currentProcess.setRemainingBurst(0);
+            }
             currentTime += execTime;
             currentProcess.calcProcessTurnaroundTime(currentTime);
             currentProcess.calcProcessWaitingTime(currentTime);

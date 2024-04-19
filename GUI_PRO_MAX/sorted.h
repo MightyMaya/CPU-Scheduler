@@ -34,7 +34,7 @@ class Sorted : public SortingBase{
 	public:
 		Sorted(string method);
 		
-        bool empty() const override;
+        bool empty() override;
         void push(process p)  override;
         process top()  const override;
         void pop()  override;

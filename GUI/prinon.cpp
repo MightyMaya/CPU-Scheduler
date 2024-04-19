@@ -72,7 +72,9 @@ void prinon::paintEvent(QPaintEvent *event) {
         QString pidText = QString("PID: %1").arg(p.getID());
         painter.drawText(x + 5, y + height / 3, pidText);
         QString execTimeText = QString("ExcT: %1").arg(p.getBurst());
-        painter.drawText(x + 5, y + (height * 2) / 3, execTimeText);
+        painter.drawText(x + 5, y + (height * 2) / 3 - 7, execTimeText);
+        QString remTimeText = QString("RemT: %1").arg(0);
+        painter.drawText(x + 2, y + (height ) -15, remTimeText);
         x += p.getBurst()*30 +10;
         if(x>770 && y == 300){
             y = 420;

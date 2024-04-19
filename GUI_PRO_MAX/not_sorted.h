@@ -24,7 +24,7 @@ class NotSorted : public SortingBase{
 		int globalTime = 0;
 	
 	public:
-		bool empty() const override;
+        bool empty() override;
         void push(process p)  override;
         process top() const override;
         void pop()  override;

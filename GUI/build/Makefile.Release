@@ -3106,7 +3106,7 @@ release/fcfs.o: ../fcfs.cpp ../fcfs.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
-		ui_fcfs.h \
+		../ui_fcfs.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -3330,7 +3330,7 @@ release/fcfs2.o: ../fcfs2.cpp ../fcfs2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../process.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
-		ui_fcfs2.h \
+		../ui_fcfs2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -3801,7 +3801,7 @@ release/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
 		../fcfs2.h \
 		../process.h \
-		ui_mainwindow.h \
+		../ui_mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -4055,7 +4055,7 @@ release/pri.o: ../pri.cpp ../pri.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
 		../process.h \
-		ui_pri.h \
+		../ui_pri.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -4286,7 +4286,7 @@ release/pri2.o: ../pri2.cpp ../pri2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		../process.h \
-		ui_pri2.h \
+		../ui_pri2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -4512,7 +4512,7 @@ release/prinon.o: ../prinon.cpp ../prinon.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		../process.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
-		ui_prinon.h \
+		../ui_prinon.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -4743,7 +4743,7 @@ release/prinon2.o: ../prinon2.cpp ../prinon2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		../process.h \
-		ui_prinon2.h \
+		../ui_prinon2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -4972,7 +4972,7 @@ release/rr.o: ../rr.cpp ../rr.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
 		../process.h \
-		ui_rr.h \
+		../ui_rr.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -4992,9 +4992,7 @@ release/rr.o: ../rr.cpp ../rr.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qspinbox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QSplitter \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qsplitter.h
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qregularexpression.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/rr.o ../rr.cpp
 
 release/rr2.o: ../rr2.cpp ../rr2.h \
@@ -5205,7 +5203,7 @@ release/rr2.o: ../rr2.cpp ../rr2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentrunbase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
-		ui_rr2.h \
+		../ui_rr2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -5221,15 +5219,7 @@ release/rr2.o: ../rr2.cpp ../rr2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qspinbox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QSplitter \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qsplitter.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qregularexpression.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/rr2.o ../rr2.cpp
 
 release/sjf.o: ../sjf.cpp ../sjf.h \
@@ -5439,7 +5429,7 @@ release/sjf.o: ../sjf.cpp ../sjf.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
 		../process.h \
-		ui_sjf.h \
+		../ui_sjf.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -5677,7 +5667,7 @@ release/sjf2.o: ../sjf2.cpp ../sjf2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		../process.h \
-		ui_sjf2.h \
+		../ui_sjf2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -5903,7 +5893,7 @@ release/sjfnon.o: ../sjfnon.cpp ../sjfnon.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		../process.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QCloseEvent \
-		ui_sjfnon.h \
+		../ui_sjfnon.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -6141,7 +6131,7 @@ release/sjfnon2.o: ../sjfnon2.cpp ../sjfnon2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 		../process.h \
-		ui_sjfnon2.h \
+		../ui_sjfnon2.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \

@@ -34,7 +34,7 @@ bool Sorted::compareByBurst(process a, process b) {
 }
 
 
-bool Sorted::empty () const {
+bool Sorted::empty () {
 	return readyQueue.empty();
 }
 void Sorted::push (process p)  {
@@ -66,5 +66,5 @@ qDebug()<<globalTime;
         readyQueue.push(process);
 	
 	globalTime++;
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Sleep for 1 second
 }

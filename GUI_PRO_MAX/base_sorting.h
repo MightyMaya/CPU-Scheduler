@@ -11,7 +11,7 @@
 
 class SortingBase{
 	public:
-        virtual bool empty() const = 0;
+        virtual bool empty() = 0;
         virtual void push(process p)  = 0;
         virtual process top() const = 0;
         virtual void pop() = 0;
