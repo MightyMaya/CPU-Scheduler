@@ -1,0 +1,12 @@
+release/common_scheduler.o
+release/live.o
+release/main.o
+release/mainwindow.o
+release/not_sorted.o
+release/notlive.o
+release/preemptive.o
+release/process.o
+release/sorted.o
+release/moc_live.o
+release/moc_mainwindow.o
+release/moc_notlive.o
