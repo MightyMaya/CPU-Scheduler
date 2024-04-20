@@ -43,7 +43,7 @@ class CommonScheduler{
         CommonScheduler(SortingBase* readyQueue_, Preemptive preemptive_);
         void setUIPointer(QDialog* qd);
 
-		virtual void paintEvent(QPaintEvent *event);
+        void paintEvent();
 		
 		void start();
         void stop();

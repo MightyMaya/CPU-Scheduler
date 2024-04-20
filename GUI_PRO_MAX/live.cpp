@@ -11,6 +11,7 @@ live::live(QWidget *parent, bool showQuantum, bool showPriority, CommonScheduler
 
     ui->setupUi(this);
     scheduler->setUIPointer(this);
+
     ui->quantum->setVisible(showQuantum);
     ui->quantum->setMinimum(1);
     ui->quantum->setValue(1);
@@ -26,9 +27,6 @@ live::live(QWidget *parent, bool showQuantum, bool showPriority, CommonScheduler
     timer->start(1000); // Start the timer with 1-second interval
 
     QtConcurrent::run(START,scheduler);
-    //QObject::connect(this, &live::startSignal, this, &live::start);
-    //emit this->startSignal();
-    //qDebug()<<"frozen?";
 }
 
 live::~live()
@@ -43,6 +41,10 @@ void START(CommonScheduler* scheduler) {
 
 void live::updateChart() {
     update(); // Update the UI
+}
+
+void live::paintEvent(QPaintEvent *event){
+    scheduler->paintEvent();
 }
 
 void live::updateAverages() {

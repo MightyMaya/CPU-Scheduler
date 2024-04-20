@@ -36,6 +36,7 @@ public:
     ~live();
 
 private:
+    virtual void paintEvent(QPaintEvent *event);
     Ui::live *ui;
     QTimer *timer; // Timer for updating the chart
     QTime startTime;

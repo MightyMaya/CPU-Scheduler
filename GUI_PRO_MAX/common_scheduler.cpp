@@ -10,7 +10,7 @@
 CommonScheduler::CommonScheduler(SortingBase* readyQueue_, Preemptive preemptive_) : readyQueue (readyQueue_)
                                                                                    , preemptive (preemptive_){}
 int CommonScheduler::processNo = 0;
-void CommonScheduler::paintEvent(QPaintEvent *event) {
+void CommonScheduler::paintEvent() {
     QPainter painter(UIpointer);
 	int x = 30;
 	int y = 300;
